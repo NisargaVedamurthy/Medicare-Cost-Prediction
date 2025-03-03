@@ -4,8 +4,11 @@ import pickle
 import pandas as pd
 
 
-with open("model_random_forest.pkl", "rb") as f:
-    model = pickle.load(f)
+# with open("model_random_forest.pkl", "rb") as f:
+#     model = pickle.load(f)
+
+with open('model_linear_regressor.pkl', 'rb') as file:
+    model1 = pickle.load(file) 
 
 # Set page configuration
 st.set_page_config(
