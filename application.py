@@ -71,7 +71,7 @@ else:
   
 
     def validate(drg_code,city_nm,provider_nm):
-        inpatient_data = pd.read_csv('Medicare_Provider_Charge_Inpatient_DRG100_FY2011.csv')
+        inpatient_data = pd.read_csv('application_usage.csv')
         cols=['DRG Definition','Provider Name','Provider City']
         data_req = inpatient_data[cols]
 
