@@ -72,11 +72,11 @@ else:
 
     def validate(drg_code,city_nm,provider_nm):
         inpatient_data = pd.read_csv('application_usage.csv')
-        cols=['DRG Definition','Provider Name','Provider City']
+        cols=['DRG_Definition','Provider_Name','Provider_City']
         data_req = inpatient_data[cols]
 
-        city = data_req[data_req['DRG Definition']==drg_code]['Provider City']
-        provider = data_req[data_req['DRG Definition']==drg_code]['Provider Name']
+        city = data_req[data_req['DRG_Definition']==drg_code]['Provider_City']
+        provider = data_req[data_req['DRG_Definition']==drg_code]['Provider_Name']
 
         city_list = city.values.tolist()
         provider_list = provider.values.tolist()
@@ -86,7 +86,7 @@ else:
         if provider_nm not in provider_list:
             return "This Procedure is not supported in the given Hospital"
         if city_nm in city_list:
-            prov_df =  data_req[(data_req['DRG Definition']==drg_code) & (data_req['Provider City']==city_nm)]['Provider Name'] 
+            prov_df =  data_req[(data_req['DRG_Definition']==drg_code) & (data_req['Provider_City']==city_nm)]['Provider_Name'] 
             prov_list = prov_df.values.tolist()
             if provider_nm not in prov_list:
                 return "The Hospital is not present in the city."
